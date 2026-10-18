@@ -19,9 +19,12 @@ function Presentacion({
                 <h2>{descripcion}</h2>
 
                 <p className="presentacion-texto">
-                    Desarrollo soluciones web orientadas a simplificar
-                    tareas, organizar información y mejorar la gestión
-                    de negocios y profesionales.
+                    Desarrollo páginas web profesionales y sistemas
+                    internos a medida para comercios, profesionales e
+                    instituciones. Si tu negocio todavía trabaja con
+                    papeles, planillas, tiene el sistema desactualizado
+                    o no tiene presencia online, puedo ayudarte a
+                    cambiarlo.
                 </p>
             </div>
         </section>

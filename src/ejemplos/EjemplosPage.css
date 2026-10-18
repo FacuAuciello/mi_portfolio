@@ -1,0 +1,138 @@
+.ejemplos {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 36px 20px 90px;
+    color: #fff;
+}
+
+.ejemplos-volver {
+    display: inline-block;
+    margin-bottom: 26px;
+    color: #93c5fd;
+    font-weight: 600;
+    font-size: 15px;
+}
+.ejemplos-volver:hover { text-decoration: underline; }
+
+.ejemplos-intro { display: flex; align-items: center; gap: 16px; }
+.ejemplos-intro > span { font-size: 44px; line-height: 1; }
+.ejemplos-etiqueta { margin: 0; color: #93c5fd; font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+.ejemplos-intro h2 { margin: 2px 0 0; font-size: 34px; line-height: 1.2; }
+
+.ejemplos-aclaracion {
+    max-width: 720px;
+    margin: 16px 0 28px;
+    color: #b9c5d9;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* ---------- Selector de ejemplos ---------- */
+.ejemplos-selector {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin-bottom: 22px;
+}
+.ejemplos-selector button {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 16px 18px;
+    background: rgba(17, 25, 44, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 14px;
+    color: #fff;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color .2s ease, transform .2s ease, background .2s ease;
+}
+.ejemplos-selector button:hover { border-color: rgba(147, 197, 253, .55); transform: translateY(-2px); }
+.ejemplos-selector button.activo { border-color: #93c5fd; background: rgba(59, 130, 246, 0.16); }
+.ejemplos-selector small { color: #93c5fd; font-size: 12px; font-weight: 600; }
+.ejemplos-selector b { font-size: 18px; }
+.ejemplos-selector span { color: #b9c5d9; font-size: 13.5px; line-height: 1.5; }
+
+/* ---------- Marco tipo navegador ---------- */
+.marco {
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, .45);
+}
+.marco-barra {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 14px;
+    background: #1e293b;
+}
+.marco .puntos { display: flex; gap: 6px; }
+.marco .puntos i { width: 11px; height: 11px; border-radius: 50%; background: #475569; }
+.marco .puntos i:nth-child(1) { background: #f87171; }
+.marco .puntos i:nth-child(2) { background: #fbbf24; }
+.marco .puntos i:nth-child(3) { background: #4ade80; }
+.marco-url {
+    flex: 1;
+    min-width: 0;
+    padding: 5px 12px;
+    overflow: hidden;
+    background: #0f172a;
+    border-radius: 99px;
+    color: #94a3b8;
+    font-size: 13px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.marco-demo { padding: 2px 9px; background: #dbeafe; border-radius: 99px; color: #0b1525; font-size: 11px; font-weight: 800; letter-spacing: .5px; }
+.marco-contenido { overflow: hidden; }
+
+/* ---------- Llamado a la acción ---------- */
+.ejemplos-cta {
+    max-width: 700px;
+    margin: 48px auto 0;
+    padding: 34px 26px;
+    text-align: center;
+    background: rgba(17, 25, 44, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 20px;
+}
+.ejemplos-cta h3 { margin: 0 0 10px; font-size: 26px; }
+.ejemplos-cta p { margin: 0 0 22px; color: #b9c5d9; font-size: 16px; }
+.ejemplos .boton-consultar {
+    display: inline-flex;
+    padding: 13px 22px;
+    background: #dbeafe;
+    border-radius: 10px;
+    color: #0b1525;
+    font-size: 15px;
+    font-weight: 700;
+    transition: background .2s ease;
+}
+.ejemplos .boton-consultar:hover { background: #93c5fd; }
+
+.ejemplos-otros { margin-top: 44px; text-align: center; }
+.ejemplos-otros h4 { margin: 0 0 14px; color: #b9c5d9; font-size: 15px; font-weight: 600; }
+.ejemplos-otros div { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.ejemplos-otros a {
+    padding: 9px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 99px;
+    color: #fff;
+    font-size: 14px;
+    transition: background .2s ease, border-color .2s ease;
+}
+.ejemplos-otros a:hover { background: rgba(255, 255, 255, .1); border-color: #93c5fd; }
+
+.ejemplos-vacio { padding: 60px 0; text-align: center; }
+
+@media (max-width: 640px) {
+    .ejemplos { padding: 24px 12px 60px; }
+    .ejemplos-intro h2 { font-size: 26px; }
+    .ejemplos-intro > span { font-size: 34px; }
+    .marco-barra { padding: 8px 10px; gap: 8px; }
+    .marco .puntos { display: none; }
+}

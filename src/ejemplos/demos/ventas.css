@@ -1,0 +1,22 @@
+.kv-productos { display:grid; grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); gap:10px; }
+.kv-prod { position:relative; display:flex; flex-direction:column; align-items:center; gap:2px; padding:16px 8px; background:var(--d-surface); color:var(--d-text); border:1px solid var(--d-border); border-radius:var(--d-radius); font:inherit; cursor:pointer; transition:transform .1s, border-color .15s; }
+.kv-prod:hover { border-color:var(--d-accent); }
+.kv-prod:active { transform:scale(.96); }
+.kv-prod span { font-size:32px; }
+.kv-prod small { color:var(--d-accent); font-weight:700; }
+.kv-prod i { position:absolute; top:6px; right:6px; min-width:22px; height:22px; padding:0 6px; display:flex; align-items:center; justify-content:center; background:var(--d-accent); color:var(--d-accent-text); border-radius:99px; font-style:normal; font-size:12px; font-weight:800; }
+.kv-lineas li { display:flex; align-items:center; gap:8px; padding:6px 0; border-bottom:1px solid var(--d-border); font-size:14px; }
+.kv-sub { min-width:70px; text-align:right; font-variant-numeric:tabular-nums; }
+.kv-total { padding-top:6px; font-size:16px; }
+.kv-total strong { font-size:26px; color:var(--d-accent); }
+
+.rv-cabecera { padding:20px; background:linear-gradient(120deg,#a21caf,#db2777); color:#fff; }
+.rv-cabecera p { opacity:.85; font-size:14px; margin-top:2px; }
+.rv-cuerpo { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:14px; align-items:start; }
+.rv-mov { display:flex; gap:10px; padding:10px 0; border-bottom:1px dashed var(--d-border); font-size:14px; }
+.rv-barras { display:flex; align-items:flex-end; gap:8px; height:130px; padding-top:6px; }
+.rv-barras div { flex:1; height:100%; display:flex; flex-direction:column; justify-content:flex-end; align-items:center; gap:4px; }
+.rv-barras span { width:100%; background:var(--d-soft); border-radius:6px 6px 0 0; transition:height .3s; }
+.rv-barras .hoy span { background:var(--d-accent); }
+.rv-barras small { color:var(--d-muted); font-size:11px; }
+@media (max-width:760px) { .rv-cuerpo { grid-template-columns:1fr; } }

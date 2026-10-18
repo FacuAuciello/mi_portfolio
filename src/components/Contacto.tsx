@@ -10,10 +10,10 @@ function Contacto() {
                 </span>
 
                 <a
-                    href="mailto:tuemail@gmail.com"
+                    href="mailto:facundoauciello@gmail.com"
                     className="contacto-email"
                 >
-                    tuemail@gmail.com
+                    facundoauciello@gmail.com
                 </a>
 
                 <a

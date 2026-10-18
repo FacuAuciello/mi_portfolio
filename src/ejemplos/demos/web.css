@@ -1,0 +1,67 @@
+/* ---------- Peluquería ---------- */
+.pw-nav { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:16px 28px; border-bottom:1px solid var(--d-border); }
+.pw-logo { letter-spacing:4px; font-family:var(--d-title); color:var(--d-accent); }
+.pw-links { display:flex; gap:24px; color:var(--d-muted); font-size:14px; }
+.pw-hero { display:grid; grid-template-columns:1.1fr .9fr; gap:32px; align-items:center; padding:48px 28px; }
+.pw-eyebrow { color:var(--d-accent); font-size:12px; letter-spacing:2px; text-transform:uppercase; margin-bottom:12px !important; }
+.pw-hero h2 { font-size:42px; margin-bottom:14px; }
+.pw-hero-arte { aspect-ratio:1; max-height:280px; margin-left:auto; width:100%; display:flex; align-items:center; justify-content:center; font-size:96px; background:radial-gradient(circle at 30% 20%, #4a3a1c, #1d1916 70%); border:1px solid var(--d-accent); border-radius:50% 50% 4px 4px; }
+.pw-seccion { padding:30px 28px; border-top:1px solid var(--d-border); }
+.pw-seccion h3 { font-size:24px; }
+.pw-precios li { display:flex; align-items:baseline; gap:10px; padding:11px 0; }
+.pw-precios i { flex:1; border-bottom:1px dotted var(--d-muted); transform:translateY(-4px); }
+.pw-precios b { color:var(--d-accent); font-family:var(--d-title); }
+.pw-galeria { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:16px; }
+.pw-galeria div { aspect-ratio:1; display:flex; align-items:center; justify-content:center; font-size:38px; border-radius:var(--d-radius); }
+.pw-pie { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:20px; padding:26px 28px; background:var(--d-surface); border-top:1px solid var(--d-border); }
+
+/* ---------- Almacén ---------- */
+.aw-aviso { padding:9px 14px; background:var(--d-accent); color:#fff; text-align:center; font-size:13px; font-weight:600; }
+.aw-hero { display:flex; flex-direction:column; align-items:center; gap:14px; padding:46px 24px 30px; text-align:center; }
+.aw-hero h2 { font-size:46px; }
+.aw-hero p { max-width:480px; color:var(--d-muted); }
+.aw-sello { padding:4px 14px; background:var(--d-soft); border:2px dashed var(--d-accent); border-radius:99px; color:var(--d-accent); font-weight:700; font-size:13px; transform:rotate(-3deg); }
+.aw-beneficios { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; padding:10px 24px 24px; }
+.aw-beneficios .d-card { display:flex; flex-direction:column; align-items:center; gap:6px; text-align:center; }
+.aw-beneficios span { font-size:28px; }
+.aw-seccion { padding:10px 24px 24px; }
+.aw-seccion h3 { font-size:26px; margin-bottom:14px; text-align:center; }
+.aw-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+.aw-prod { display:flex; flex-direction:column; gap:6px; padding:12px; }
+.aw-prod p { font-size:13px; }
+.aw-info { display:grid; grid-template-columns:1fr 1fr; gap:14px; padding:0 24px 28px; }
+.aw-info h4 { margin-bottom:6px; }
+.aw-mapa { margin-top:12px; height:96px; display:flex; align-items:center; justify-content:center; border-radius:12px; color:var(--d-muted); background:repeating-linear-gradient(45deg,var(--d-soft),var(--d-soft) 10px,#fff3d6 10px,#fff3d6 20px); }
+.aw-horarios li { display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px dashed var(--d-border); }
+
+/* ---------- Estudio contable ---------- */
+.cw-nav { display:flex; align-items:baseline; justify-content:space-between; gap:12px; padding:16px 28px; background:var(--d-surface); border-bottom:1px solid var(--d-border); }
+.cw-hero { display:grid; grid-template-columns:1.2fr .8fr; gap:32px; align-items:center; padding:40px 28px; }
+.cw-hero h2 { font-size:36px; margin:12px 0; }
+.cw-puntos { margin-top:16px !important; display:grid; gap:6px; font-weight:600; font-size:14px; }
+.cw-form { display:flex; flex-direction:column; gap:10px; padding:20px; box-shadow:0 12px 30px rgba(20,33,61,.12); }
+.cw-gracias { display:flex; flex-direction:column; align-items:center; gap:8px; text-align:center; padding:18px 0; }
+.cw-gracias span { font-size:34px; }
+.cw-servicios { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; padding:0 28px 30px; }
+.cw-num { font-family:var(--d-title); font-size:13px; font-weight:800; color:var(--d-accent); }
+.cw-servicios h4 { margin:6px 0 4px; }
+.cw-faq { padding:10px 28px 34px; display:grid; gap:8px; }
+.cw-faq h3 { font-size:22px; margin-bottom:6px; }
+.cw-faq details { background:var(--d-surface); border:1px solid var(--d-border); border-radius:var(--d-radius); padding:12px 16px; }
+.cw-faq summary { cursor:pointer; font-weight:600; }
+.cw-faq details p { margin-top:8px; }
+
+@media (max-width: 760px) {
+    .pw-links { display:none; }
+    .pw-hero, .cw-hero { grid-template-columns:1fr; padding:28px 18px; }
+    .pw-hero h2 { font-size:32px; }
+    .pw-hero-arte { max-height:180px; margin:0; }
+    .pw-nav, .cw-nav, .pw-seccion, .pw-pie { padding-left:18px; padding-right:18px; }
+    .pw-galeria { grid-template-columns:repeat(2,1fr); }
+    .aw-hero h2 { font-size:34px; }
+    .aw-beneficios, .aw-info, .cw-servicios { grid-template-columns:1fr; padding-left:18px; padding-right:18px; }
+    .aw-grid { grid-template-columns:repeat(2,1fr); }
+    .aw-seccion, .cw-faq { padding-left:18px; padding-right:18px; }
+    .cw-hero h2 { font-size:28px; }
+    .cw-nav { flex-direction:column; gap:2px; }
+}

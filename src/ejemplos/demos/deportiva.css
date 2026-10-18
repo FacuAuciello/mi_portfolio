@@ -1,0 +1,15 @@
+.gd-header { display:flex; align-items:baseline; justify-content:space-between; gap:12px; padding:18px 20px; border-bottom:3px solid var(--d-accent); }
+.gd-header h3 { font-size:22px; letter-spacing:2px; color:var(--d-accent); }
+.gd-header span { color:var(--d-muted); font-size:14px; }
+.pd-banner { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; padding:24px 22px; background:linear-gradient(120deg,#0b2545,#0e7490); color:#fff; }
+.pd-banner h2 { font-size:26px; }
+.pd-banner p { opacity:.85; margin-top:2px; }
+.pd-dias { display:flex; overflow-x:auto; background:var(--d-surface); border-bottom:1px solid var(--d-border); }
+.pd-dias button { flex:1; min-width:84px; padding:12px 8px; display:flex; flex-direction:column; align-items:center; background:none; border:0; border-bottom:3px solid transparent; font:inherit; font-weight:700; color:var(--d-muted); cursor:pointer; }
+.pd-dias button small { font-weight:500; font-size:11px; }
+.pd-dias button.on { color:var(--d-accent); border-bottom-color:var(--d-accent); }
+.pd-clase { display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+.pd-clase time { font-size:22px; font-weight:800; color:var(--d-accent); min-width:62px; font-variant-numeric:tabular-nums; }
+.pd-clase p { font-size:13px; }
+
+.pd-banner .d-badge { background:rgba(255,255,255,.95); color:#0b2545; }

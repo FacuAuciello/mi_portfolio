@@ -27,18 +27,15 @@
 
     width: 100%;
 
-    padding: 18px 32px;
+    padding: 10px 32px;
 
     box-sizing: border-box;
 }
 
-.navbar-nombre {
-    font-size: 18px;
-    font-weight: 700;
-
-    color: #ffffff;
-
-    letter-spacing: 0.3px;
+.navbar-izquierda {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .navbar-contacto {

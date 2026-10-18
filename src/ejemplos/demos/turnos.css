@@ -1,0 +1,24 @@
+.ot-lista { display:grid; gap:8px; }
+.ot-lista li { display:flex; align-items:center; gap:14px; padding:10px 14px; background:var(--d-surface); border:1px solid var(--d-border); border-left:4px solid var(--d-border); border-radius:var(--d-radius); min-height:58px; }
+.ot-lista li.ocupado { border-left-color:var(--d-accent); background:color-mix(in srgb, var(--d-accent) 7%, var(--d-surface)); }
+.ot-lista time { width:48px; font-weight:700; font-variant-numeric:tabular-nums; color:var(--d-accent); }
+.ot-lista p { font-size:13px; }
+
+.et-cabecera { padding:28px 20px 18px; text-align:center; }
+.et-cabecera h2 { font-size:32px; color:var(--d-accent); }
+.et-cabecera p { color:var(--d-muted); margin-top:4px; }
+.et-pasos { display:flex; justify-content:center; flex-wrap:wrap; gap:8px 18px; padding:0 16px 8px; list-style:none; margin:0; font-size:13px; color:var(--d-muted); }
+.et-pasos li { display:flex; align-items:center; gap:6px; }
+.et-pasos span { width:22px; height:22px; display:flex; align-items:center; justify-content:center; border-radius:50%; background:var(--d-soft); font-weight:700; font-size:12px; }
+.et-pasos li.on { color:var(--d-text); font-weight:700; }
+.et-pasos li.on span, .et-pasos li.hecho span { background:var(--d-accent); color:#fff; }
+.et-cuerpo { position:relative; max-width:560px; margin:0 auto; padding:18px 20px 34px; min-height:300px; }
+.et-opciones { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.et-opcion { display:flex; flex-direction:column; align-items:center; gap:4px; padding:20px 12px; text-align:center; font:inherit; color:inherit; cursor:pointer; transition:transform .15s, border-color .15s; }
+.et-opcion:hover { transform:translateY(-3px); border-color:var(--d-accent); }
+.et-opcion span { font-size:34px; }
+.et-resumen { max-width:420px; }
+.et-ok { display:flex; flex-direction:column; align-items:center; gap:10px; padding-top:20px; text-align:center; }
+.et-ok span { font-size:50px; }
+.et-volver { margin-top:22px; }
+@media (max-width:480px) { .et-opciones { grid-template-columns:1fr; } }

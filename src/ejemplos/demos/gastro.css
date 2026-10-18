@@ -1,0 +1,22 @@
+.pg-leyenda { padding:3px 10px; border-radius:99px; font-size:12px; font-weight:700; border:1px solid var(--d-border); }
+.pg-leyenda.libre { color:#4ade80; } .pg-leyenda.ocupada { color:#fb923c; } .pg-leyenda.cuenta { color:#f87171; }
+.pg-mesas { display:grid; grid-template-columns:repeat(auto-fill,minmax(105px,1fr)); gap:12px; }
+.pg-mesa { aspect-ratio:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; background:var(--d-surface); color:var(--d-text); border:2px solid var(--d-border); border-radius:18px; font:inherit; cursor:pointer; transition:transform .12s; }
+.pg-mesa:hover { transform:scale(1.04); }
+.pg-mesa b { font-size:28px; font-family:var(--d-title); }
+.pg-mesa small { font-size:11px; color:var(--d-muted); }
+.pg-mesa.libre { border-color:#166534; } .pg-mesa.ocupada { border-color:#c2410c; background:#3a2218; } .pg-mesa.cuenta { border-color:#b91c1c; background:#3f1d1d; }
+.pg-mesa.sel { box-shadow:0 0 0 3px var(--d-accent); }
+.pg-carta { display:flex; flex-wrap:wrap; gap:6px; }
+.pg-carta .d-chip { font-size:12px; padding:5px 10px; }
+
+.cg-cabecera { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:16px 20px; border-bottom:1px solid var(--d-border); }
+.cg-tablero { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; padding:18px 20px 24px; align-items:start; }
+.cg-col { background:var(--d-soft); border-radius:var(--d-radius); padding:12px; display:flex; flex-direction:column; gap:10px; min-height:200px; }
+.cg-col h4 { display:flex; justify-content:space-between; font-size:14px; text-transform:uppercase; letter-spacing:.5px; }
+.cg-col h4 span { background:var(--d-accent); color:#fff; padding:0 8px; border-radius:99px; font-size:12px; line-height:20px; }
+.cg-col.Pendiente h4 { color:#b45309; } .cg-col.Preparando h4 { color:#1d4ed8; } .cg-col.Listo h4 { color:#15803d; }
+.cg-comanda { display:flex; flex-direction:column; align-items:flex-start; gap:6px; padding:12px; }
+.cg-comanda p { font-size:13px; }
+.cg-vacio { text-align:center; font-size:13px; padding:16px 0; }
+@media (max-width:760px) { .cg-tablero { grid-template-columns:1fr; padding:14px; } .cg-col { min-height:0; } }
