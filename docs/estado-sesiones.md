@@ -132,3 +132,9 @@ Facundo pasó 11 capturas del interior de la aplicación. Se revisaron una por u
 
 ### Reglas de Java (privadas, Sesión 3)
 Se leyó **todo el texto** de los apuntes y se completó la guía de estilo privada: cómo explicar, cómo escribir código, reglas por tema (Java base, Java funcional, API REST con Spring Boot, JPA, Git, HTML y CSS, SQL, web, Thymeleaf y Docker), una tabla de lo desactualizado y una sección nueva con lo que se aprendió haciendo el consultorio (concurrencia, tests, compatibilidad entre versiones de Java). Queda sin leer el código que está en imágenes y el `Git Cheatsheet.pdf`.
+
+### Descripción de los proyectos refinada (Sesión 3)
+- **Se sacó de las tarjetas la mención a los tests** (la cantidad de tests de cada proyecto) y la descripción quedó en dos o tres frases.
+- **Solo las tecnologías principales,** con su logo al lado del nombre: Java, Spring Boot, Spring Security, MySQL, React y TypeScript en el consultorio; Java, Spring Boot, Spring Security, PostgreSQL, React, TypeScript y Tailwind en Conectar Docentes. El detalle (JPA, JUnit, Playwright…) queda en el README de cada repo.
+- **MySQL sí figura en el consultorio:** Facundo lo practicó con MySQL Workbench y el proyecto está pensado para esa base (aunque la demo y los tests corren sobre H2). Spring Security figura en los dos proyectos porque se usó en ambos; no tiene logo propio, así que lleva el de Spring.
+- **Los logos son de Devicon (MIT)** y están guardados en `public/tecnologias/`, no se cargan desde internet. Se revisó que los SVG no tuvieran scripts ni enlaces externos.

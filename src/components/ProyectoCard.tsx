@@ -96,8 +96,17 @@ function ProyectoCard({ proyecto }: ProyectoCardProps) {
 
                     <div className="proyecto-tecnologias">
                         {tecnologias.map((tecnologia) => (
-                            <span key={tecnologia}>
-                                {tecnologia}
+                            <span key={tecnologia.nombre}>
+                                {/* alt vacío: el logo es decorativo, el nombre ya está escrito al lado */}
+                                {tecnologia.logo && (
+                                    <img
+                                        src={tecnologia.logo}
+                                        alt=""
+                                        width={18}
+                                        height={18}
+                                    />
+                                )}
+                                {tecnologia.nombre}
                             </span>
                         ))}
                     </div>

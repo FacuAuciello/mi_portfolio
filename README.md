@@ -37,6 +37,7 @@ Cada `git push` a `main` publica el sitio solo: **Cloudflare** clona el repo, co
 1. Copiar las capturas a `public/proyectos/<id-del-proyecto>/`.
 2. Agregar una entrada en `src/data/proyectos.ts` (nombre, descripción, estado, tecnologías, imágenes y enlaces).
 3. Los enlaces son opcionales: `codigo`, `sitio` y `demo`. Si no hay enlace al código, se puede usar `notaCodigo`. El botón "Ver demo" solo aparece cuando hay un `demo`.
+4. Las tecnologías salen del catálogo `TEC` del mismo archivo, con su logo en `public/tecnologias/`. Se muestran solo las principales de cada proyecto.
 
 ## Estructura
 
@@ -49,6 +50,10 @@ src/
 public/         Imágenes de los proyectos, favicon e imagen para compartir el enlace (og.png)
 docs/           Registro de lo que se fue haciendo y por qué
 ```
+
+## Créditos
+
+Los logos de las tecnologías (`public/tecnologias/`) son de [Devicon](https://devicon.dev/) (licencia MIT). Las marcas pertenecen a sus respectivos dueños.
 
 ## Documentación
 

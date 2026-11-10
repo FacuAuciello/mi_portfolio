@@ -349,7 +349,11 @@
 }
 
 .proyecto-tecnologias span {
-    padding: 7px 11px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 7px 12px;
 
     border-radius: 999px;
 
@@ -358,6 +362,13 @@
 
     font-size: 13px;
     font-weight: 600;
+}
+
+/* logo de cada tecnologia, al lado del nombre */
+.proyecto-tecnologias img {
+    display: block;
+
+    flex-shrink: 0;
 }
 
 

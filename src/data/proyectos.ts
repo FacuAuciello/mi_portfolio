@@ -1,10 +1,16 @@
+export type Tecnologia = {
+    nombre: string;
+    /** Logo dentro de /public/tecnologias (opcional: sin logo se muestra solo el nombre) */
+    logo?: string;
+};
+
 export type Proyecto = {
     id: string;
     nombre: string;
     descripcion: string;
     /** Dice en qué estado real está el proyecto, para no dar a entender más de lo que hay */
     estado: string;
-    tecnologias: string[];
+    tecnologias: Tecnologia[];
     /** Rutas dentro de /public (o URLs completas) */
     imagenes: string[];
     enlaces: {
@@ -16,23 +22,35 @@ export type Proyecto = {
     notaCodigo?: string;
 };
 
+// Catálogo de tecnologías: cada logo se define una sola vez y los proyectos lo reutilizan.
+// Se muestran solo las principales de cada proyecto, no cada librería que usa.
+const TEC = {
+    java17: { nombre: "Java 17", logo: "/tecnologias/java.svg" },
+    java25: { nombre: "Java 25", logo: "/tecnologias/java.svg" },
+    springBoot: { nombre: "Spring Boot", logo: "/tecnologias/spring.svg" },
+    // Spring Security no tiene un logo propio: lleva el de Spring, igual que Spring Boot
+    springSecurity: { nombre: "Spring Security", logo: "/tecnologias/spring.svg" },
+    mysql: { nombre: "MySQL", logo: "/tecnologias/mysql.svg" },
+    react: { nombre: "React", logo: "/tecnologias/react.svg" },
+    typescript: { nombre: "TypeScript", logo: "/tecnologias/typescript.svg" },
+    postgresql: { nombre: "PostgreSQL", logo: "/tecnologias/postgresql.svg" },
+    tailwind: { nombre: "Tailwind CSS", logo: "/tecnologias/tailwindcss.svg" },
+} satisfies Record<string, Tecnologia>;
+
 export const proyectos: Proyecto[] = [
     {
         id: "consultorio-odontologico",
         nombre: "Consultorio Odontológico",
         descripcion:
-            "Sistema de gestión para un consultorio: agenda semanal de turnos, pacientes e historia clínica, con login y reglas de agenda validadas en el servidor (horario, duraciones y sin superposición de turnos). Fue mi primer proyecto para un cliente real: reescribí la versión original, hecha con JSP y Servlets, con Spring Boot y React. Tiene 104 tests en el backend y 32 en el frontend.",
+            "Sistema de gestión para un consultorio odontológico: agenda de turnos, pacientes e historia clínica, con login. El servidor valida las reglas de la agenda (horario, duraciones y que dos turnos no se superpongan). Fue mi primer proyecto para un cliente real: reescribí la versión original, hecha con JSP y Servlets, con Spring Boot y React.",
         estado: "Entregado al cliente. Los datos de las capturas son ficticios.",
         tecnologias: [
-            "Java 17",
-            "Spring Boot",
-            "Spring Security",
-            "JPA / Hibernate",
-            "MySQL · H2",
-            "React",
-            "TypeScript",
-            "JUnit · Mockito",
-            "Vitest",
+            TEC.java17,
+            TEC.springBoot,
+            TEC.springSecurity,
+            TEC.mysql,
+            TEC.react,
+            TEC.typescript,
         ],
         imagenes: [
             "/proyectos/consultorio/agenda.png",
@@ -49,18 +67,16 @@ export const proyectos: Proyecto[] = [
         id: "conectar-docentes",
         nombre: "Conectar Docentes",
         descripcion:
-            "Bolsa de trabajo para docentes de Mar del Plata: las instituciones publican búsquedas laborales y los docentes arman un perfil privado y se postulan. API en Java con autenticación JWT y permisos por rol (docente, institución y administrador). Tiene 213 tests de backend y 32 pruebas end-to-end.",
+            "Bolsa de trabajo para docentes de Mar del Plata: las instituciones publican búsquedas laborales y los docentes arman un perfil privado y se postulan. API en Java con autenticación JWT y permisos por rol (docente, institución y administrador).",
         estado: "MVP en línea, todavía sin usuarios reales.",
         tecnologias: [
-            "Java 25",
-            "Spring Boot 4.1",
-            "Spring Security + JWT",
-            "JPA / Hibernate",
-            "PostgreSQL",
-            "React",
-            "TypeScript",
-            "Tailwind CSS",
-            "Playwright",
+            TEC.java25,
+            TEC.springBoot,
+            TEC.springSecurity,
+            TEC.postgresql,
+            TEC.react,
+            TEC.typescript,
+            TEC.tailwind,
         ],
         imagenes: [
             "/proyectos/conectar-docentes/portada.png",
