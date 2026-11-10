@@ -46,12 +46,12 @@ Registro de lo que se fue haciendo en el portfolio, con el porqué de cada decis
 3. `wrangler.jsonc` le indica que publique la carpeta `./dist` como archivos estáticos.
 4. El sitio queda disponible en `facundoauciello.com`, con HTTPS.
 
-### Pendiente
-- Subir los 2 proyectos reales (uno está en un zip que se revisa y limpia antes de publicar en GitHub).
-- Armar las demos de los servicios (hoy vacías).
-- Decidir qué hacer con `ProyectoCard.tsx` y `Contacto.tsx` (reutilizar o borrar).
-- Reemplazar el favicon provisorio por un logo propio.
-- Más adelante: backend en Java (Spring Boot). Habrá que usar una variable `VITE_API_URL` en lugar de `http://localhost:8080` y configurar CORS para el dominio.
+### Pendiente (estado al 2026-11-10)
+- ~~Subir los 2 proyectos reales~~: hecho en la Sesión 2 (el consultorio está en GitHub y los dos proyectos están en la página del CV).
+- **Armar las demos de los servicios** (hoy vacías): sigue pendiente. Cuando haya una, el botón "Ver ejemplos" vuelve a aparecer solo.
+- ~~Decidir qué hacer con `ProyectoCard.tsx` y `Contacto.tsx`~~: hecho, se reutilizaron en la página del CV.
+- **Reemplazar el favicon provisorio** por un logo propio: sigue pendiente.
+- **Más adelante: backend en Java** (Spring Boot). Habrá que usar una variable `VITE_API_URL` en lugar de `http://localhost:8080` (esa dirección ya no está en el código) y configurar CORS para el dominio.
 
 ---
 
@@ -83,10 +83,36 @@ Registro de lo que se fue haciendo en el portfolio, con el porqué de cada decis
 - **Comprobado con Chrome:** 16 comprobaciones de navegación con clics reales (rutas, anclas, carrusel, imágenes), capturas en escritorio y celular, sin ningún `localhost` en el código publicado.
 
 ### Pendiente
-- **Publicar estos cambios** del portfolio (el push a `main` despliega el sitio solo).
-- **Permiso del dentista** para tener el consultorio público.
+- ~~Publicar la página del CV~~: hecho, está en línea en https://facundoauciello.com (commit `b0e56d4`, verificada con las mismas 16 comprobaciones de navegación).
+- ~~Permiso del dentista~~: hecho, está de acuerdo con que se muestre (es de confianza; de palabra).
 - **Demo del consultorio** en el portfolio (Etapa 7): front con datos simulados, publicado como sitio aparte; después se activa el botón "Ver demo" de la tarjeta.
 - **Tarjeta con QR** que apunte a `facundoauciello.com/#/negocios`, y al menos una demo más antes de ofrecer "demos de tu rubro".
+- **Más capturas de Conectar Docentes** para su tarjeta (hoy tiene 2, de páginas públicas): Facundo las va a pasar. Revisar que no muestren datos de personas.
 - **Decidir si se hace público** el repo de Conectar Docentes (requiere una revisión previa).
 - **Borrado lógico de pacientes** en el consultorio (cambia el modelo de datos; queda a decisión).
 - **Opcional:** hacer el front del consultorio también en Angular, contra la misma API, si las ofertas lo piden.
+
+---
+
+## Sesión 3 — 2026-11-10: puesta al día de la documentación
+
+### Qué se hizo
+Se revisaron todos los `.md` de los proyectos para ver cuáles habían quedado desactualizados después de la Sesión 2.
+
+1. **`README.md` del portfolio:** estaba muy desactualizado (decía que el front consumía una API de Spring Boot y que estaba "En desarrollo"). Se reescribió: qué muestra cada entrada, los proyectos, cómo correrlo, cómo se publica y cómo agregar un proyecto.
+2. **`CLAUDE.md` del portfolio:** describía la arquitectura anterior (la función `useServicioEjemplos()` ya no existe y decía que los "volver" usan `#<id>`, justo el error que había que evitar). Se reescribió con las rutas nuevas, la regla de los enlaces entre páginas (`#/...`), los archivos de datos, la publicación y las reglas de privacidad.
+3. **`docs/consultorio-odontologico.md`:** se corrigieron tres frases viejas (la tarjeta ya estaba publicada y los tests de concurrencia y de controllers ya existían).
+4. **Este archivo:** se cerró el "Pendiente" de la Sesión 1.
+5. **`CLAUDE.md` del repo del consultorio (nuevo):** comandos, Java 17 a propósito, el problema de CORS con otro puerto, la concurrencia de los turnos, convenciones y privacidad. Está creado en la carpeta del proyecto pero todavía no se subió a su repo.
+
+### Cosas a corregir que aparecieron
+- El comentario de `frontend/vite.config.ts` del consultorio dice que en desarrollo "ni siquiera se necesita CORS". No es cierto si el front corre en otro puerto que el permitido por el backend (el navegador manda el `Origin` igual). Está documentado en el `CLAUDE.md` del consultorio; falta corregir el comentario.
+
+### Pendiente
+- **Más capturas de Conectar Docentes** para su tarjeta (Facundo las va a pasar). Revisar que no muestren datos de personas.
+- **Commit y push** de estos cambios: en el portfolio (README, CLAUDE.md y `docs/`) y en el consultorio (`CLAUDE.md`). El push al portfolio vuelve a desplegar el sitio, aunque estos cambios no alteran lo que se ve.
+- **Etapa 7:** la demo del consultorio con datos simulados y, después, el botón "Ver demo" de la tarjeta.
+- **Tarjeta con QR** para negocios (apunta a `facundoauciello.com/#/negocios`) y al menos una demo más antes de ofrecer "demos de tu rubro".
+- **`docs/stack-y-reglas.md`:** hoy solo tiene reglas de Java. Falta una sección del front (React y TypeScript, cliente HTTP central, nombres en español), una de tests y la decisión de React primero y Angular como segunda carta.
+- **Apuntes privados:** seguir `REGLAS-JAVA.md` (falta leer Git, HTML/CSS y el resto de JPA, y sumar "lo que aprendí en el consultorio").
+- **Opcional:** borrado lógico de pacientes en el consultorio; front del consultorio en Angular.

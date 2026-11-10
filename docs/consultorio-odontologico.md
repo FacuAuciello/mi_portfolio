@@ -3,7 +3,7 @@
 Documento para poder explicar el proyecto: qué es, cómo está armado y por qué se tomaron ciertas decisiones. Se actualiza a medida que avanza el trabajo.
 
 - **Repo en GitHub:** https://github.com/FacuAuciello/consultorio-odontologico (público, publicado el 2026-11-09 con un commit inicial de 131 archivos)
-- **En el portfolio:** tarjeta en la página del CV, con link al repo y capturas (lista, todavía sin publicar). La demo está pendiente (Etapa 7) y el botón "Ver demo" se activa cuando exista
+- **En el portfolio:** tarjeta en la página del CV (https://facundoauciello.com), con link al repo y capturas, ya publicada. La demo está pendiente (Etapa 7) y el botón "Ver demo" se activa cuando exista
 
 ## Qué es
 
@@ -107,7 +107,7 @@ Usuario `admin` y contraseña `demo1234`. Son públicas y solo existen en el per
 | 3 | Levantarlo y decidir qué hacer con el front | Hecho: se dejó el diseño y se arregló la vista de celular (tablas como tarjetas) |
 | 4 | Revisar el backend respetando mi forma de escribir y comentar | Hecho: revisión y correcciones 1, 2, 3 y 5 aplicadas (queda pendiente solo el punto 4, el borrado lógico) |
 | 5 | Tests: correr los que hay y sumar los que falten | Hecho: 104 tests en el backend y 32 en el frontend, todos en verde |
-| 6 | Subirlo a GitHub (antes: permiso del cliente) | Hecho: publicado en `FacuAuciello/consultorio-odontologico` con capturas y nombres ficticios. Pendiente de tu lado: el permiso del dentista |
+| 6 | Subirlo a GitHub (antes: permiso del cliente) | Hecho: publicado en `FacuAuciello/consultorio-odontologico` con capturas y nombres ficticios. El dentista dio su OK para mostrarlo |
 | 7 | Demo con datos simulados en el portfolio, sin backend | Pendiente |
 
 ## Qué se hizo en la Etapa 3
@@ -137,7 +137,7 @@ Se leyeron todas las capas (controller, service, repository, entity, dto, mapper
   - **Qué se probó antes:** `Isolation.SERIALIZABLE` no sirvió en H2 (siguieron entrando hasta 10 turnos iguales de 12 pedidos), y como acá no hay Docker ni MySQL no se podía verificar un bloqueo real de base de datos. Por eso se eligió el cerrojo, que se puede comprobar.
   - **Resultado:** de 12 pedidos simultáneos para el mismo horario, ahora entra exactamente 1 (antes entraban 6 a 10). Con la edición pasa lo mismo: dos turnos que se mueven a la vez al mismo horario dejan uno solo.
   - **Límite:** el cerrojo protege mientras haya **un solo servidor** corriendo, que es el caso de un consultorio. Con varios servidores haría falta un bloqueo en la base de datos (y probarlo con MySQL).
-  - **Pendiente:** un test automático de concurrencia (Etapa 5), hoy está probado a mano contra el backend en marcha.
+  - **Test automático:** `TurnoConcurrenciaTest` (Etapa 5) lo comprueba con pedidos simultáneos; además se probó a mano contra el backend en marcha.
 - **Punto 2:** `ActualizarHistoriaClinicaDTO` ahora tiene `@NotNull`, de modo que un `PATCH` con `{}` responde 400. Un texto vacío sigue siendo válido (comprobado).
 - **Punto 3:** los `@Pattern` de nombre, apellido, DNI y teléfono aceptan el valor vacío, así de un campo vacío se ocupa solo `@NotBlank`: un mensaje por campo en vez de dos. Los valores inválidos siguen mostrando su mensaje (comprobado).
 - **Punto 5:** se reescribieron los 5 comentarios que hablaban de "conectar-docentes" (`pom.xml` x2, `PacienteRequestDTO`, `PacienteMapper`, `ConsultorioException`).
@@ -148,7 +148,7 @@ Se leyeron todas las capas (controller, service, repository, entity, dto, mapper
 - **Sin límite de intentos de login** (ya figura en "Posibles mejoras" del README).
 - **`/api/turnos` sin fechas devuelve todos los turnos** y no hay paginación en el servidor (también figura en el README).
 - **CORS solo permite el header `Content-Type`:** si el front envía otro header, el navegador lo bloquea.
-- **Faltan tests de controllers, de seguridad y de concurrencia** (Etapa 5).
+- ~~Faltaban tests de controllers, de seguridad y de concurrencia~~: resuelto en la Etapa 5 (ver más abajo).
 
 ### Estilo
 - **Coincide con las reglas:** nombres en español, DTOs y mappers, `@RequiredArgsConstructor`, `Optional.ofNullable` y `Predicate.not`, comentarios del porqué, handler global con un único formato de error.
@@ -191,7 +191,7 @@ Para este proyecto se decidió:
 - **Nombre del profesional ficticio:** `Dr. Demo (ficticio)` en `frontend/src/config/consultorio.ts` y en `frontend/.env.example`. Ya no queda el nombre real en el código.
 - **Pacientes y turnos ficticios**, como ya estaban.
 - **Capturas nuevas:** las 7 de `docs/` del proyecto se rehicieron con Chrome contra el backend en modo demo recién iniciado (para que no queden turnos de pruebas), y ya muestran "Dr. Demo (ficticio)". Las viejas, con el nombre real, se reemplazaron (se descartaron). El aspecto de la captura de celular también cambió: ahora se ve la vista de tarjetas.
-- **Pedirle permiso igual** al dentista antes de subirlo, aunque el nombre esté cambiado, porque el proyecto sigue siendo su sistema.
+- **Permiso del dentista:** está de acuerdo con que se muestre (es de confianza). Aun así, el nombre está cambiado y los datos son ficticios.
 - **Dato sensible:** el sistema maneja historias clínicas. Nunca se publican datos reales de pacientes.
 
 ## ¿Está en producción?
