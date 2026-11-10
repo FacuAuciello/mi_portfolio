@@ -145,3 +145,9 @@ Se leyó **todo el texto** de los apuntes y se completó la guía de estilo priv
 - **En la tarjeta del portfolio** se dice lo que es: "Demo sin backend: los datos son ficticios y se reinician al recargar la página". Cinco capturas (inicio, productos, movimientos, importar y exportar, y modo oscuro) y solo React y TypeScript como tecnologías.
 - **Pendiente en su repo (no se tocó):** el README está desactualizado (da las categorías como "próximas" y no menciona estadísticas, importar/exportar ni modo oscuro), no tiene capturas ni descripción en GitHub.
 - **Idea:** al ser estático se puede publicar online y servir de demo del servicio "Control de stock e inventario" de la página de negocios.
+
+### Barra de navegación y botón de CV (Sesión 3)
+- **Barra sin fondo:** se sacó la barra azul; ahora es transparente, se ve el fondo de la página y se va con el scroll. Se quitaron "Proyectos" y "Contacto" (ya están en la propia página). Queda "Para negocios" como píldora con borde fino y, fuera del inicio, "← Mis proyectos" y "Contactarme".
+- **Botón "Mi CV"** al lado de LinkedIn. Abre `/cv-facundo-auciello.pdf` (constante `CV` en `src/data/enlaces.ts`). `public/robots.txt` y `public/_headers` piden que ese PDF no se indexe (`noindex`).
+- **Pendiente:** el PDF todavía no está en `public/`, así que el botón no lleva a nada hasta que Facundo pase el CV. Debe ser una versión pública (sin DNI, domicilio ni teléfono personal) y con los metadatos del PDF limpiados. Un CV público no se puede proteger del todo: lo que protege es no poner datos sensibles.
+- **Demos online:** las demos (consultorio y StockControl) siguen postergadas por ahora.

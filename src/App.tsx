@@ -5,7 +5,7 @@ import Contacto from "./components/Contacto";
 import Presentacion from "./components/Presentacion";
 import Proyectos from "./components/Proyectos";
 import Servicios from "./components/Servicios";
-import { GITHUB, LINKEDIN } from "./data/enlaces";
+import { CV, GITHUB, LINKEDIN } from "./data/enlaces";
 import EjemplosPage from "./ejemplos/EjemplosPage";
 import { ENLACE_INICIO, enlaceNegocios, usePagina } from "./utils/ruta";
 import {
@@ -45,18 +45,10 @@ function App() {
         <>
             <header className="navbar">
                 <div className="navbar-contenido">
+                    {/* en el inicio no hay enlaces a la izquierda (los botones de la presentacion ya llevan a los proyectos);
+                        el nav vacio se deja para que "Para negocios" quede a la derecha */}
                     <nav className="navbar-izquierda">
-                        {tipo === "inicio" ? (
-                            <>
-                                <a href="#proyectos" className="navbar-enlace">
-                                    Proyectos
-                                </a>
-
-                                <a href="#contacto" className="navbar-enlace">
-                                    Contacto
-                                </a>
-                            </>
-                        ) : (
+                        {tipo !== "inicio" && (
                             <a href={ENLACE_INICIO} className="navbar-enlace">
                                 ← Mis proyectos
                             </a>
@@ -130,6 +122,15 @@ function App() {
                                 className="presentacion-enlace"
                             >
                                 LinkedIn
+                            </a>
+
+                            <a
+                                href={CV}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="presentacion-enlace"
+                            >
+                                Mi CV
                             </a>
                         </Presentacion>
 

@@ -6,18 +6,16 @@
 
 /* NAVBAR */
 
+/* barra transparente: no tiene fondo ni borde, se ve el fondo de la pagina, y se va con el scroll */
 .navbar {
     width: 100%;
 
-    position: sticky;
+    position: absolute;
     top: 0;
+    left: 0;
     z-index: 1000;
 
-    background: rgba(7, 11, 20, 0.82);
-
-    backdrop-filter: blur(10px);
-
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    background: transparent;
 }
 
 .navbar-contenido {
@@ -680,7 +678,7 @@
     }
 
     .presentacion {
-        padding: 48px 16px 28px;
+        padding: 76px 16px 28px;
     }
 
     .presentacion h1 {
