@@ -69,9 +69,9 @@ Registro de lo que se fue haciendo en el portfolio, con el porqué de cada decis
 4. **Página del CV.** El inicio de facundoauciello.com pasó a ser el portfolio para postulaciones, con los proyectos primero.
 
 ### Decisiones y por qué
-- **Dos entradas en el mismo sitio:** `facundoauciello.com` es el CV (para LinkedIn y postulaciones) y `facundoauciello.com/#/negocios` es la página para negocios (los servicios freelance, a la que apuntará el QR de la tarjeta). Un recruiter busca pruebas (proyectos, código); el dueño de un local busca ver qué problema se le resuelve. Mezclarlos confunde a los dos.
-- **Título: "Desarrollador Java Full Stack".** No ata a un framework de front, así que sirve para ofertas con React y con Angular.
-- **React primero, Angular como segunda carta:** ya hay un proyecto real en React y TypeScript. Angular se suma si las ofertas a las que se postula lo piden, y no se pone en el CV hasta construir algo con él.
+- **Dos entradas en el mismo sitio:** `facundoauciello.com` es el CV (para LinkedIn y postulaciones) y `facundoauciello.com/#/negocios` es la página para negocios (los servicios freelance). Un recruiter busca pruebas (proyectos, código); el dueño de un local busca ver qué problema se le resuelve. Mezclarlos confunde a los dos.
+- **Título: "Desarrollador Java Full Stack".** No ata a un framework de front.
+- **React como base:** ya hay un proyecto real en React y TypeScript. Lo que se quiere aprender después quedó anotado en la sección "Por aprender" de [`stack-y-reglas.md`](stack-y-reglas.md).
 - **Honestidad sobre el estado de cada proyecto:** el consultorio dice "entregado al cliente" (no está en producción) y Conectar Docentes dice "MVP en línea, todavía sin usuarios reales".
 - **Conectar Docentes sin enlace al código:** su repo es privado, así que la tarjeta enlaza al sitio en línea y dice "código disponible a pedido".
 - **El botón "Ver ejemplos" se oculta** mientras un servicio no tenga ejemplos; antes llevaba a una pantalla vacía.
@@ -86,11 +86,9 @@ Registro de lo que se fue haciendo en el portfolio, con el porqué de cada decis
 - ~~Publicar la página del CV~~: hecho, está en línea en https://facundoauciello.com (commit `b0e56d4`, verificada con las mismas 16 comprobaciones de navegación).
 - ~~Permiso del dentista~~: hecho, está de acuerdo con que se muestre (es de confianza; de palabra).
 - **Demo del consultorio** en el portfolio (Etapa 7): front con datos simulados, publicado como sitio aparte; después se activa el botón "Ver demo" de la tarjeta.
-- **Tarjeta con QR** que apunte a `facundoauciello.com/#/negocios`, y al menos una demo más antes de ofrecer "demos de tu rubro".
 - ~~Más capturas de Conectar Docentes~~: hecho en la Sesión 3 (ver abajo).
 - **Decidir si se hace público** el repo de Conectar Docentes (requiere una revisión previa).
 - **Borrado lógico de pacientes** en el consultorio (cambia el modelo de datos; queda a decisión).
-- **Opcional:** hacer el front del consultorio también en Angular, contra la misma API, si las ofertas lo piden.
 
 ---
 
@@ -111,10 +109,9 @@ Se revisaron todos los `.md` de los proyectos para ver cuáles habían quedado d
 ### Pendiente
 - **Commit y push** de estos cambios: en el portfolio (README, CLAUDE.md y `docs/`) y en el consultorio (`CLAUDE.md`). El push al portfolio vuelve a desplegar el sitio, aunque estos cambios no alteran lo que se ve.
 - **Etapa 7:** la demo del consultorio con datos simulados y, después, el botón "Ver demo" de la tarjeta.
-- **Tarjeta con QR** para negocios (apunta a `facundoauciello.com/#/negocios`) y al menos una demo más antes de ofrecer "demos de tu rubro".
-- **`docs/stack-y-reglas.md`:** hoy solo tiene reglas de Java. Falta una sección del front (React y TypeScript, cliente HTTP central, nombres en español), una de tests y la decisión de React primero y Angular como segunda carta.
-- **Apuntes privados:** seguir `REGLAS-JAVA.md` (falta leer Git, HTML/CSS y el resto de JPA, y sumar "lo que aprendí en el consultorio").
-- **Opcional:** borrado lógico de pacientes en el consultorio; front del consultorio en Angular.
+- ~~`docs/stack-y-reglas.md`~~: hecho (ver abajo).
+- ~~Apuntes privados: seguir `REGLAS-JAVA.md`~~: hecho (ver abajo).
+- **Opcional:** borrado lógico de pacientes en el consultorio.
 
 ### Capturas de Conectar Docentes (Sesión 3, 2026-11-10)
 Facundo pasó 11 capturas del interior de la aplicación. Se revisaron una por una y quedaron **5 imágenes** en la tarjeta (la portada pública y 4 del interior):
@@ -123,3 +120,15 @@ Facundo pasó 11 capturas del interior de la aplicación. Se revisaron una por u
 - **Se recortó la parte de Chrome** (pestañas abiertas y favoritos) de las capturas de pantalla completa y se redujeron a 1600 px de ancho. Los originales no se tocaron.
 - Cómo se hizo: `sips` no sirve para recortar desde arriba, así que el recorte se hace mostrando la imagen desplazada en Chrome headless y capturando el resultado.
 - Se sacó `registro.png` (un formulario con poco valor) y la tarjeta ya no depende de páginas públicas únicamente.
+
+### `docs/stack-y-reglas.md` ampliado (Sesión 3)
+- **Se corrigió:** decía que MySQL se usaba en producción (no es así) y que `@RequiredArgsConstructor` era una regla general (Conectar Docentes escribe los constructores a mano; se comprobó en su código).
+- **Secciones nuevas:** cómo escribo el front, cómo escribo los tests, qué hago antes de dar algo por terminado, cómo saco las capturas (sin datos ni correos reales, sin la barra de Chrome) y "Por aprender".
+- **Una lección que quedó escrita:** el sitio responde `200` con una página HTML para cualquier archivo que no existe, así que para comprobar que algo ya está en línea hay que mirar el `content-type`.
+
+### Decisiones de la Sesión 3
+- **La tarjeta de presentación es física** y la hace Facundo: no es una tarea de este proyecto.
+- **La demo interactiva del consultorio queda postergada** hasta que empiece a ofrecer servicios a negocios.
+
+### Reglas de Java (privadas, Sesión 3)
+Se leyó **todo el texto** de los apuntes y se completó la guía de estilo privada: cómo explicar, cómo escribir código, reglas por tema (Java base, Java funcional, API REST con Spring Boot, JPA, Git, HTML y CSS, SQL, web, Thymeleaf y Docker), una tabla de lo desactualizado y una sección nueva con lo que se aprendió haciendo el consultorio (concurrencia, tests, compatibilidad entre versiones de Java). Queda sin leer el código que está en imágenes y el `Git Cheatsheet.pdf`.

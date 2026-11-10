@@ -15,7 +15,7 @@ No hay test runner. Se verifica con `lint`, `build` y revisando las rutas a mano
 
 Portfolio personal de Facundo Auciello, en https://facundoauciello.com. SPA con React 19 + TypeScript + Vite, sin librerías de UI ni de routing. El contenido es estático: no hay backend ni llamadas a ninguna API. Todo el texto de la interfaz está en español (Argentina) y los identificadores también (`proyectos`, `servicios`, `Presentacion`).
 
-Tiene **dos entradas para dos públicos**: el inicio es el CV (para postulaciones y LinkedIn: título "Desarrollador Java Full Stack", proyectos, GitHub, LinkedIn y email) y `#/negocios` es la página para dueños de negocios (servicios freelance con WhatsApp). La tarjeta con QR que se le va a dar a los negocios apuntará a `#/negocios`.
+Tiene **dos entradas para dos públicos**: el inicio es el CV (para postulaciones y LinkedIn: título "Desarrollador Java Full Stack", proyectos, GitHub, LinkedIn y email) y `#/negocios` es la página para dueños de negocios (servicios freelance con WhatsApp).
 
 ## Arquitectura
 
