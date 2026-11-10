@@ -11,6 +11,7 @@ Sitio personal en **https://facundoauciello.com**. Está pensado para dos públi
 
 - **[Consultorio Odontológico](https://github.com/FacuAuciello/consultorio-odontologico):** gestión de turnos, pacientes e historia clínica. Backend en Java y Spring Boot, frontend en React y TypeScript. Entregado a un cliente real; las capturas usan datos ficticios.
 - **[Conectar Docentes](https://www.conectardocentes.com.ar):** bolsa de trabajo para docentes de Mar del Plata. MVP en línea, todavía sin usuarios reales. Su repositorio es privado.
+- **[StockControl](https://github.com/FacuAuciello/stockcontrol-frontend):** control de stock para pequeños comercios (productos, movimientos, categorías e importación y exportación de Excel y CSV). Es una demo solo de frontend, con datos de ejemplo y sin backend.
 
 ## Tecnologías
 

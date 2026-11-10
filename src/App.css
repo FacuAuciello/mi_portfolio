@@ -711,3 +711,14 @@
         padding: 22px 16px;
     }
 }
+
+
+/* con una cantidad impar de proyectos, el ultimo queda centrado y no pegado a la izquierda */
+@media (min-width: 801px) {
+    .proyectos-grid .proyecto-card:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        justify-self: center;
+
+        width: calc((100% - 34px) / 2);
+    }
+}

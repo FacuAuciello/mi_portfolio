@@ -138,3 +138,10 @@ Se leyó **todo el texto** de los apuntes y se completó la guía de estilo priv
 - **Solo las tecnologías principales,** con su logo al lado del nombre: Java, Spring Boot, Spring Security, MySQL, React y TypeScript en el consultorio; Java, Spring Boot, Spring Security, PostgreSQL, React, TypeScript y Tailwind en Conectar Docentes. El detalle (JPA, JUnit, Playwright…) queda en el README de cada repo.
 - **MySQL sí figura en el consultorio:** Facundo lo practicó con MySQL Workbench y el proyecto está pensado para esa base (aunque la demo y los tests corren sobre H2). Spring Security figura en los dos proyectos porque se usó en ambos; no tiene logo propio, así que lleva el de Spring.
 - **Los logos son de Devicon (MIT)** y están guardados en `public/tecnologias/`, no se cargan desde internet. Se revisó que los SVG no tuvieran scripts ni enlaces externos.
+
+### StockControl sumado como tercer proyecto (Sesión 3)
+- **Qué es:** `stockcontrol-frontend` (repo público), un control de inventario para pequeños comercios hecho solo con frontend: React 19, TypeScript y Vite, con datos ficticios de una librería. Productos con búsqueda y filtros, movimientos de entrada y salida que actualizan el stock, categorías, indicadores, importación y exportación de Excel y CSV y modo claro y oscuro.
+- **Cómo se revisó:** se clonó en una carpeta aparte (fuera de los repos) y se instalaron las dependencias con `npm ci --ignore-scripts`. Compila y pasa el lint sin errores. No tiene `.env` ni datos sensibles.
+- **En la tarjeta del portfolio** se dice lo que es: "Demo sin backend: los datos son ficticios y se reinician al recargar la página". Cinco capturas (inicio, productos, movimientos, importar y exportar, y modo oscuro) y solo React y TypeScript como tecnologías.
+- **Pendiente en su repo (no se tocó):** el README está desactualizado (da las categorías como "próximas" y no menciona estadísticas, importar/exportar ni modo oscuro), no tiene capturas ni descripción en GitHub.
+- **Idea:** al ser estático se puede publicar online y servir de demo del servicio "Control de stock e inventario" de la página de negocios.

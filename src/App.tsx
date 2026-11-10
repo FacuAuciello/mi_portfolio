@@ -105,7 +105,7 @@ function App() {
                         <Presentacion
                             nombre="Facundo Auciello"
                             descripcion="Desarrollador Java Full Stack"
-                            texto="Desarrollo aplicaciones de punta a punta: APIs REST con Java y Spring Boot, bases de datos relacionales e interfaces web con React y TypeScript. Abajo podés ver dos de mis proyectos."
+                            texto="Desarrollo aplicaciones de punta a punta: APIs REST con Java y Spring Boot, bases de datos relacionales e interfaces web con React y TypeScript. Abajo podés ver algunos de mis proyectos."
                         >
                             <a
                                 href="#proyectos"

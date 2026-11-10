@@ -90,4 +90,22 @@ export const proyectos: Proyecto[] = [
         },
         notaCodigo: "Código disponible a pedido",
     },
+    {
+        id: "stockcontrol",
+        nombre: "StockControl",
+        descripcion:
+            "Sistema de control de stock para pequeños comercios: productos con búsqueda y filtros, entradas y salidas de mercadería que actualizan el stock solas, categorías, indicadores e importación y exportación de planillas Excel y CSV. Es una demostración solo de frontend: usa datos de ejemplo y todavía no tiene backend.",
+        estado: "Demo sin backend: los datos son ficticios y se reinician al recargar la página.",
+        tecnologias: [TEC.react, TEC.typescript],
+        imagenes: [
+            "/proyectos/stockcontrol/inicio.png",
+            "/proyectos/stockcontrol/productos.png",
+            "/proyectos/stockcontrol/movimientos.png",
+            "/proyectos/stockcontrol/importar-exportar.png",
+            "/proyectos/stockcontrol/modo-oscuro.png",
+        ],
+        enlaces: {
+            codigo: "https://github.com/FacuAuciello/stockcontrol-frontend",
+        },
+    },
 ];
