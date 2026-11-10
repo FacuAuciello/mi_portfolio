@@ -1,7 +1,8 @@
 import "./Servicios.css";
 
 import { servicios } from "../data/servicios";
-import { enlaceEjemplos } from "../utils/ruta";
+import { demosPorServicio } from "../ejemplos/registro";
+import { ENLACE_INICIO, enlaceEjemplos } from "../utils/ruta";
 import {
     obtenerEnlaceWhatsApp,
     whatsappConfigurado as hayWhatsApp,
@@ -20,6 +21,11 @@ function Servicios() {
                     lo que puede incluir. Si algo te interesa, podés
                     consultarme directamente por WhatsApp desde la
                     misma tarjeta.
+                </p>
+
+                <p className="servicios-aviso">
+                    ¿Buscás un desarrollador para tu equipo?{" "}
+                    <a href={ENLACE_INICIO}>Mirá mis proyectos</a>
                 </p>
             </div>
 
@@ -58,12 +64,15 @@ function Servicios() {
                         </ul>
 
                         <div className="servicio-acciones">
-                            <a
-                                href={enlaceEjemplos(servicio.id)}
-                                className="boton-ejemplos"
-                            >
-                                Ver ejemplos
-                            </a>
+                            {/* el botón solo aparece cuando hay algo para mostrar: sin ejemplos llevaba a una pantalla vacía */}
+                            {(demosPorServicio[servicio.id]?.length ?? 0) > 0 && (
+                                <a
+                                    href={enlaceEjemplos(servicio.id)}
+                                    className="boton-ejemplos"
+                                >
+                                    Ver ejemplos
+                                </a>
+                            )}
 
                             <a
                                 href={obtenerEnlaceWhatsApp(
@@ -88,7 +97,7 @@ function Servicios() {
                 ))}
             </div>
 
-            <div id="contacto" className="servicios-personalizado">
+            <div id="contacto-negocios" className="servicios-personalizado">
                 <h2>
                     ¿Necesitás algo más específico para tu negocio?
                 </h2>

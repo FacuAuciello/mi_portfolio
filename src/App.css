@@ -196,7 +196,7 @@
     width: 100%;
     height: 100%;
 
-    object-fit: cover;
+    object-fit: contain;
 
     cursor: zoom-in;
 
@@ -498,4 +498,205 @@
 
 .contacto-email:hover {
     opacity: 0.7;
+}
+
+
+/* NAVEGACION (inicio y negocios) */
+
+.navbar-izquierda {
+    gap: 22px;
+}
+
+.navbar-enlace {
+    color: #b6c2d9;
+
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+
+    transition: color 0.2s ease;
+}
+
+.navbar-enlace:hover {
+    color: #ffffff;
+}
+
+.navbar-contacto {
+    padding: 7px 14px;
+
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 999px;
+}
+
+
+/* ENLACES DE LA PRESENTACION */
+
+.presentacion-enlaces {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-top: 30px;
+}
+
+.presentacion-enlace {
+    padding: 11px 22px;
+
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 999px;
+
+    color: #ffffff;
+
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.presentacion-enlace:hover {
+    background: rgba(255, 255, 255, 0.1);
+
+    transform: translateY(-1px);
+}
+
+.presentacion-enlace-principal {
+    border-color: #4e73df;
+
+    background: #4e73df;
+}
+
+.presentacion-enlace-principal:hover {
+    background: #3f63cf;
+}
+
+
+/* PROYECTOS: ESTADO Y ENLACES */
+
+/* el navbar es fijo: sin esto el titulo de la seccion queda tapado al saltar al ancla */
+.proyectos-seccion,
+.contacto {
+    scroll-margin-top: 56px;
+}
+
+.proyecto-contenido .proyecto-estado {
+    margin-bottom: 12px;
+
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+
+    color: #b45309;
+}
+
+.proyecto-enlaces {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: auto;
+    padding-top: 22px;
+}
+
+.proyecto-boton {
+    padding: 9px 16px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 999px;
+
+    background: #ffffff;
+    color: #111827;
+
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.proyecto-boton:hover {
+    background: #f3f4f6;
+
+    border-color: #9ca3af;
+}
+
+.proyecto-boton-principal {
+    border-color: #4e73df;
+
+    background: #4e73df;
+    color: #ffffff;
+}
+
+.proyecto-boton-principal:hover {
+    background: #3f63cf;
+
+    border-color: #3f63cf;
+}
+
+.proyecto-nota-codigo {
+    font-size: 14px;
+
+    color: #6b7280;
+}
+
+
+/* CELULARES */
+
+@media (max-width: 800px) {
+    .proyectos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .navbar-contenido {
+        padding: 10px 16px;
+    }
+
+    .navbar-izquierda {
+        gap: 14px;
+    }
+
+    .navbar-enlace,
+    .navbar-contacto {
+        font-size: 14px;
+    }
+
+    .presentacion {
+        padding: 48px 16px 28px;
+    }
+
+    .presentacion h1 {
+        font-size: 38px;
+    }
+
+    .presentacion h2 {
+        font-size: 21px;
+    }
+
+    .presentacion-texto {
+        font-size: 16px;
+    }
+
+    .proyectos-seccion {
+        padding: 28px 16px 70px;
+    }
+
+    .proyectos-seccion h2 {
+        font-size: 30px;
+    }
+
+    .proyecto-imagen {
+        height: 230px;
+    }
+
+    .contacto-contenido {
+        padding: 22px 16px;
+    }
 }

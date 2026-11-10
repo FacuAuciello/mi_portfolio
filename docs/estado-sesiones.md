@@ -52,3 +52,41 @@ Registro de lo que se fue haciendo en el portfolio, con el porqué de cada decis
 - Decidir qué hacer con `ProyectoCard.tsx` y `Contacto.tsx` (reutilizar o borrar).
 - Reemplazar el favicon provisorio por un logo propio.
 - Más adelante: backend en Java (Spring Boot). Habrá que usar una variable `VITE_API_URL` en lugar de `http://localhost:8080` y configurar CORS para el dominio.
+
+---
+
+## Sesión 2 — 2026-11-09: consultorio, apuntes de Java y página del CV
+
+### Qué se hizo
+1. **Consultorio odontológico, de punta a punta.** Se tomó el proyecto de un zip y se llevó, por etapas, a un repo público: https://github.com/FacuAuciello/consultorio-odontologico. El detalle completo está en [`consultorio-odontologico.md`](consultorio-odontologico.md). En resumen:
+   - Pasó de Java 21 a **Java 17** a propósito (para mostrar que se manejan distintas versiones; Conectar Docentes usa Java 25) y compila y pasa los tests en las dos.
+   - Se arregló la vista de celular (las tablas pasan a tarjetas).
+   - Se cambió el nombre real del dentista por uno ficticio en el código y en las capturas.
+   - Revisión del backend con correcciones; la principal evita **turnos superpuestos** cuando llegan pedidos a la vez (un cerrojo que envuelve la transacción).
+   - Tests: de 27 a **104 en el backend** y de 20 a **32 en el frontend**, con tests de concurrencia que se comprobó que fallan si se saca el cerrojo.
+2. **Apuntes de Java (privados).** Los Word de los cursos se convirtieron a texto en una carpeta privada (fuera de cualquier repo) y se armó una guía de estilo, `REGLAS-JAVA.md`. No se suben a GitHub porque parte del material es de un curso.
+3. **Reglas y stack para subir proyectos:** [`stack-y-reglas.md`](stack-y-reglas.md).
+4. **Página del CV.** El inicio de facundoauciello.com pasó a ser el portfolio para postulaciones, con los proyectos primero.
+
+### Decisiones y por qué
+- **Dos entradas en el mismo sitio:** `facundoauciello.com` es el CV (para LinkedIn y postulaciones) y `facundoauciello.com/#/negocios` es la página para negocios (los servicios freelance, a la que apuntará el QR de la tarjeta). Un recruiter busca pruebas (proyectos, código); el dueño de un local busca ver qué problema se le resuelve. Mezclarlos confunde a los dos.
+- **Título: "Desarrollador Java Full Stack".** No ata a un framework de front, así que sirve para ofertas con React y con Angular.
+- **React primero, Angular como segunda carta:** ya hay un proyecto real en React y TypeScript. Angular se suma si las ofertas a las que se postula lo piden, y no se pone en el CV hasta construir algo con él.
+- **Honestidad sobre el estado de cada proyecto:** el consultorio dice "entregado al cliente" (no está en producción) y Conectar Docentes dice "MVP en línea, todavía sin usuarios reales".
+- **Conectar Docentes sin enlace al código:** su repo es privado, así que la tarjeta enlaza al sitio en línea y dice "código disponible a pedido".
+- **El botón "Ver ejemplos" se oculta** mientras un servicio no tenga ejemplos; antes llevaba a una pantalla vacía.
+
+### Cómo funciona la página del CV (para explicarlo)
+- **Rutas por hash**, sin librería: `#/` inicio, `#/negocios` negocios, `#/negocios/<servicio>` baja hasta la tarjeta, `#/ejemplos/<servicio>` ejemplos. Los enlaces como `#proyectos` son anclas dentro del inicio. Un detalle que costó: un enlace `#<id>` mandaba al inicio en vez de a negocios, así que los enlaces entre páginas empiezan siempre con `#/`.
+- **Datos separados del diseño:** los proyectos están en `src/data/proyectos.ts` y los enlaces personales en `src/data/enlaces.ts`.
+- **Vista previa en LinkedIn:** `index.html` trae las etiquetas Open Graph y la imagen `public/og.png` (1200 × 630).
+- **Comprobado con Chrome:** 16 comprobaciones de navegación con clics reales (rutas, anclas, carrusel, imágenes), capturas en escritorio y celular, sin ningún `localhost` en el código publicado.
+
+### Pendiente
+- **Publicar estos cambios** del portfolio (el push a `main` despliega el sitio solo).
+- **Permiso del dentista** para tener el consultorio público.
+- **Demo del consultorio** en el portfolio (Etapa 7): front con datos simulados, publicado como sitio aparte; después se activa el botón "Ver demo" de la tarjeta.
+- **Tarjeta con QR** que apunte a `facundoauciello.com/#/negocios`, y al menos una demo más antes de ofrecer "demos de tu rubro".
+- **Decidir si se hace público** el repo de Conectar Docentes (requiere una revisión previa).
+- **Borrado lógico de pacientes** en el consultorio (cambia el modelo de datos; queda a decisión).
+- **Opcional:** hacer el front del consultorio también en Angular, contra la misma API, si las ofertas lo piden.

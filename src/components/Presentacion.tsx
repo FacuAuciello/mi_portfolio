@@ -1,11 +1,18 @@
+import type { ReactNode } from "react";
+
 interface PresentacionProps {
     nombre: string;
     descripcion: string;
+    texto: string;
+    /** Botones o enlaces que van debajo del texto (opcional) */
+    children?: ReactNode;
 }
 
 function Presentacion({
     nombre,
     descripcion,
+    texto,
+    children,
 }: PresentacionProps) {
     return (
         <section className="presentacion">
@@ -19,13 +26,14 @@ function Presentacion({
                 <h2>{descripcion}</h2>
 
                 <p className="presentacion-texto">
-                    Desarrollo páginas web profesionales y sistemas
-                    internos a medida para comercios, profesionales e
-                    instituciones. Si tu negocio todavía trabaja con
-                    papeles, planillas, tiene el sistema desactualizado
-                    o no tiene presencia online, puedo ayudarte a
-                    cambiarlo.
+                    {texto}
                 </p>
+
+                {children && (
+                    <div className="presentacion-enlaces">
+                        {children}
+                    </div>
+                )}
             </div>
         </section>
     );

@@ -1,50 +1,36 @@
 import { useState } from "react";
 
+import type { Proyecto } from "../data/proyectos";
+
 interface ProyectoCardProps {
-    nombre: string;
-    descripcion: string;
-    tecnologias: string[];
-    imagenes?: string[];
+    proyecto: Proyecto;
 }
 
-function ProyectoCard({
-    nombre,
-    descripcion,
-    tecnologias,
-    imagenes = [],
-}: ProyectoCardProps) {
+function ProyectoCard({ proyecto }: ProyectoCardProps) {
+    const { nombre, descripcion, estado, tecnologias, imagenes, enlaces, notaCodigo } = proyecto;
+
     const [imagenActual, setImagenActual] = useState(0);
     const [imagenAmpliada, setImagenAmpliada] = useState(false);
 
-    const imagenesConUrlCompleta = Array.isArray(imagenes)
-        ? imagenes.map((imagen) => {
-            if (imagen.startsWith("http")) {
-                return imagen;
-            }
-
-            return `http://localhost:8080${imagen}`;
-        })
-        : [];
-
     function imagenAnterior() {
-        if (imagenesConUrlCompleta.length === 0) {
+        if (imagenes.length === 0) {
             return;
         }
 
         setImagenActual((indiceActual) =>
             indiceActual === 0
-                ? imagenesConUrlCompleta.length - 1
+                ? imagenes.length - 1
                 : indiceActual - 1
         );
     }
 
     function imagenSiguiente() {
-        if (imagenesConUrlCompleta.length === 0) {
+        if (imagenes.length === 0) {
             return;
         }
 
         setImagenActual((indiceActual) =>
-            indiceActual === imagenesConUrlCompleta.length - 1
+            indiceActual === imagenes.length - 1
                 ? 0
                 : indiceActual + 1
         );
@@ -53,63 +39,58 @@ function ProyectoCard({
     return (
         <>
             <article className="proyecto-card">
-                <div className="proyecto-imagen">
-                    {imagenesConUrlCompleta.length > 0 ? (
-                        <>
-                            <img
-                                src={imagenesConUrlCompleta[imagenActual]}
-                                alt={`Captura del proyecto ${nombre}`}
-                                onClick={() => setImagenAmpliada(true)}
-                            />
+                {/* sin capturas no se muestra el bloque de imagen */}
+                {imagenes.length > 0 && (
+                    <div className="proyecto-imagen">
+                        <img
+                            src={imagenes[imagenActual]}
+                            alt={`Captura del proyecto ${nombre}`}
+                            onClick={() => setImagenAmpliada(true)}
+                        />
 
-                            {imagenesConUrlCompleta.length > 1 && (
-                                <>
-                                    <button
-                                        className="flecha-imagen flecha-izquierda"
-                                        onClick={imagenAnterior}
-                                        aria-label="Imagen anterior"
-                                    >
-                                        ‹
-                                    </button>
+                        {imagenes.length > 1 && (
+                            <>
+                                <button
+                                    className="flecha-imagen flecha-izquierda"
+                                    onClick={imagenAnterior}
+                                    aria-label="Imagen anterior"
+                                >
+                                    ‹
+                                </button>
 
-                                    <button
-                                        className="flecha-imagen flecha-derecha"
-                                        onClick={imagenSiguiente}
-                                        aria-label="Imagen siguiente"
-                                    >
-                                        ›
-                                    </button>
+                                <button
+                                    className="flecha-imagen flecha-derecha"
+                                    onClick={imagenSiguiente}
+                                    aria-label="Imagen siguiente"
+                                >
+                                    ›
+                                </button>
 
-                                    <div className="indicadores-imagenes">
-                                        {imagenesConUrlCompleta.map(
-                                            (_, indice) => (
-                                                <button
-                                                    key={indice}
-                                                    className={
-                                                        indice === imagenActual
-                                                            ? "indicador activo"
-                                                            : "indicador"
-                                                    }
-                                                    onClick={() =>
-                                                        setImagenActual(indice)
-                                                    }
-                                                    aria-label={`Ver imagen ${indice + 1}`}
-                                                />
-                                            )
-                                        )}
-                                    </div>
-                                </>
-                            )}
-                        </>
-                    ) : (
-                        <div className="proyecto-sin-imagen">
-                            Imagen próximamente
-                        </div>
-                    )}
-                </div>
+                                <div className="indicadores-imagenes">
+                                    {imagenes.map((_, indice) => (
+                                        <button
+                                            key={indice}
+                                            className={
+                                                indice === imagenActual
+                                                    ? "indicador activo"
+                                                    : "indicador"
+                                            }
+                                            onClick={() =>
+                                                setImagenActual(indice)
+                                            }
+                                            aria-label={`Ver imagen ${indice + 1}`}
+                                        />
+                                    ))}
+                                </div>
+                            </>
+                        )}
+                    </div>
+                )}
 
                 <div className="proyecto-contenido">
                     <h3>{nombre}</h3>
+
+                    <p className="proyecto-estado">{estado}</p>
 
                     <p>{descripcion}</p>
 
@@ -120,11 +101,52 @@ function ProyectoCard({
                             </span>
                         ))}
                     </div>
+
+                    <div className="proyecto-enlaces">
+                        {enlaces.demo && (
+                            <a
+                                href={enlaces.demo}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="proyecto-boton proyecto-boton-principal"
+                            >
+                                Ver demo ↗
+                            </a>
+                        )}
+
+                        {enlaces.sitio && (
+                            <a
+                                href={enlaces.sitio}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="proyecto-boton proyecto-boton-principal"
+                            >
+                                Ver sitio en línea ↗
+                            </a>
+                        )}
+
+                        {enlaces.codigo && (
+                            <a
+                                href={enlaces.codigo}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="proyecto-boton"
+                            >
+                                Ver código ↗
+                            </a>
+                        )}
+
+                        {!enlaces.codigo && notaCodigo && (
+                            <span className="proyecto-nota-codigo">
+                                {notaCodigo}
+                            </span>
+                        )}
+                    </div>
                 </div>
             </article>
 
             {imagenAmpliada &&
-                imagenesConUrlCompleta.length > 0 && (
+                imagenes.length > 0 && (
                     <div
                         className="modal-imagen"
                         onClick={() => setImagenAmpliada(false)}
@@ -139,7 +161,7 @@ function ProyectoCard({
                             ×
                         </button>
 
-                        {imagenesConUrlCompleta.length > 1 && (
+                        {imagenes.length > 1 && (
                             <button
                                 className="modal-flecha modal-flecha-izquierda"
                                 onClick={(evento) => {
@@ -153,18 +175,14 @@ function ProyectoCard({
                         )}
 
                         <img
-                            src={
-                                imagenesConUrlCompleta[
-                                    imagenActual
-                                ]
-                            }
+                            src={imagenes[imagenActual]}
                             alt={`Captura ampliada del proyecto ${nombre}`}
                             onClick={(evento) =>
                                 evento.stopPropagation()
                             }
                         />
 
-                        {imagenesConUrlCompleta.length > 1 && (
+                        {imagenes.length > 1 && (
                             <button
                                 className="modal-flecha modal-flecha-derecha"
                                 onClick={(evento) => {

@@ -1,3 +1,5 @@
+import { EMAIL, GITHUB, LINKEDIN } from "../data/enlaces";
+
 function Contacto() {
     return (
         <section
@@ -10,19 +12,28 @@ function Contacto() {
                 </span>
 
                 <a
-                    href="mailto:facundoauciello@gmail.com"
+                    href={`mailto:${EMAIL}`}
                     className="contacto-email"
                 >
-                    facundoauciello@gmail.com
+                    {EMAIL}
                 </a>
 
                 <a
-                    href="https://www.linkedin.com/in/facundo-auciello/"
+                    href={LINKEDIN}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="contacto-email"
                 >
                     LinkedIn
+                </a>
+
+                <a
+                    href={GITHUB}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contacto-email"
+                >
+                    GitHub
                 </a>
             </div>
         </section>

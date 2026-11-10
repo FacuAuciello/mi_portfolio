@@ -3,7 +3,7 @@ import "./EjemplosPage.css";
 
 import { servicios } from "../data/servicios";
 import { demosPorServicio } from "./registro";
-import { enlaceEjemplos } from "../utils/ruta";
+import { enlaceEjemplos, enlaceNegocios } from "../utils/ruta";
 import { obtenerEnlaceWhatsApp, whatsappConfigurado } from "../utils/whatsapp";
 
 interface Props {
@@ -20,7 +20,7 @@ function EjemplosPage({ idServicio }: Props) {
             <section className="ejemplos">
                 <div className="ejemplos-vacio">
                     <h2>Todavía no hay ejemplos acá</h2>
-                    <a href="#servicios" className="ejemplos-volver">← Volver a los servicios</a>
+                    <a href={enlaceNegocios()} className="ejemplos-volver">← Volver a los servicios</a>
                 </div>
             </section>
         );
@@ -31,7 +31,7 @@ function EjemplosPage({ idServicio }: Props) {
 
     return (
         <section className="ejemplos">
-            <a href={`#${servicio.id}`} className="ejemplos-volver">← Volver a los servicios</a>
+            <a href={enlaceNegocios(servicio.id)} className="ejemplos-volver">← Volver a los servicios</a>
 
             <header className="ejemplos-intro">
                 <span aria-hidden="true">{servicio.icono}</span>

@@ -377,3 +377,15 @@
     }
 }
 
+/* enlace para quien llego buscando un desarrollador y no un servicio */
+.servicios-aviso {
+    margin-top: 14px !important;
+
+    font-size: 15px !important;
+}
+
+.servicios-aviso a {
+    color: #ffffff;
+
+    font-weight: 600;
+}
