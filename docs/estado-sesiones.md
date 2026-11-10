@@ -87,7 +87,7 @@ Registro de lo que se fue haciendo en el portfolio, con el porqué de cada decis
 - ~~Permiso del dentista~~: hecho, está de acuerdo con que se muestre (es de confianza; de palabra).
 - **Demo del consultorio** en el portfolio (Etapa 7): front con datos simulados, publicado como sitio aparte; después se activa el botón "Ver demo" de la tarjeta.
 - **Tarjeta con QR** que apunte a `facundoauciello.com/#/negocios`, y al menos una demo más antes de ofrecer "demos de tu rubro".
-- **Más capturas de Conectar Docentes** para su tarjeta (hoy tiene 2, de páginas públicas): Facundo las va a pasar. Revisar que no muestren datos de personas.
+- ~~Más capturas de Conectar Docentes~~: hecho en la Sesión 3 (ver abajo).
 - **Decidir si se hace público** el repo de Conectar Docentes (requiere una revisión previa).
 - **Borrado lógico de pacientes** en el consultorio (cambia el modelo de datos; queda a decisión).
 - **Opcional:** hacer el front del consultorio también en Angular, contra la misma API, si las ofertas lo piden.
@@ -109,10 +109,17 @@ Se revisaron todos los `.md` de los proyectos para ver cuáles habían quedado d
 - El comentario de `frontend/vite.config.ts` del consultorio dice que en desarrollo "ni siquiera se necesita CORS". No es cierto si el front corre en otro puerto que el permitido por el backend (el navegador manda el `Origin` igual). Está documentado en el `CLAUDE.md` del consultorio; falta corregir el comentario.
 
 ### Pendiente
-- **Más capturas de Conectar Docentes** para su tarjeta (Facundo las va a pasar). Revisar que no muestren datos de personas.
 - **Commit y push** de estos cambios: en el portfolio (README, CLAUDE.md y `docs/`) y en el consultorio (`CLAUDE.md`). El push al portfolio vuelve a desplegar el sitio, aunque estos cambios no alteran lo que se ve.
 - **Etapa 7:** la demo del consultorio con datos simulados y, después, el botón "Ver demo" de la tarjeta.
 - **Tarjeta con QR** para negocios (apunta a `facundoauciello.com/#/negocios`) y al menos una demo más antes de ofrecer "demos de tu rubro".
 - **`docs/stack-y-reglas.md`:** hoy solo tiene reglas de Java. Falta una sección del front (React y TypeScript, cliente HTTP central, nombres en español), una de tests y la decisión de React primero y Angular como segunda carta.
 - **Apuntes privados:** seguir `REGLAS-JAVA.md` (falta leer Git, HTML/CSS y el resto de JPA, y sumar "lo que aprendí en el consultorio").
 - **Opcional:** borrado lógico de pacientes en el consultorio; front del consultorio en Angular.
+
+### Capturas de Conectar Docentes (Sesión 3, 2026-11-10)
+Facundo pasó 11 capturas del interior de la aplicación. Se revisaron una por una y quedaron **5 imágenes** en la tarjeta (la portada pública y 4 del interior):
+- **Panel de la institución**, **publicar una búsqueda**, **vista de una búsqueda para el docente** (con el aviso de privacidad al postularse) y **perfil privado del docente**.
+- **Todas usan datos de prueba** ("Institución Prueba", "Prueba Docente", teléfono ficticio). Se descartaron las que mostraban correos de prueba (`@yopmail.com`) y los formularios vacíos o repetidos.
+- **Se recortó la parte de Chrome** (pestañas abiertas y favoritos) de las capturas de pantalla completa y se redujeron a 1600 px de ancho. Los originales no se tocaron.
+- Cómo se hizo: `sips` no sirve para recortar desde arriba, así que el recorte se hace mostrando la imagen desplazada en Chrome headless y capturando el resultado.
+- Se sacó `registro.png` (un formulario con poco valor) y la tarjeta ya no depende de páginas públicas únicamente.

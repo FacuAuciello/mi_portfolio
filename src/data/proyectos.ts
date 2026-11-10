@@ -64,7 +64,10 @@ export const proyectos: Proyecto[] = [
         ],
         imagenes: [
             "/proyectos/conectar-docentes/portada.png",
-            "/proyectos/conectar-docentes/registro.png",
+            "/proyectos/conectar-docentes/panel-institucion.png",
+            "/proyectos/conectar-docentes/publicar-busqueda.png",
+            "/proyectos/conectar-docentes/vista-docente.png",
+            "/proyectos/conectar-docentes/perfil-docente.png",
         ],
         enlaces: {
             sitio: "https://www.conectardocentes.com.ar",
